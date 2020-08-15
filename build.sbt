@@ -3,3 +3,4 @@ lazy val `weaver-demo` =
     .in(file("."))
     .withEffectMonad
     .withTesting
+    .withTestingEffect

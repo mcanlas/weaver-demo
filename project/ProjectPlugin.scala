@@ -23,6 +23,13 @@ object ProjectPlugin extends AutoPlugin {
           ),
           testFrameworks += new TestFramework("weaver.framework.TestFramework")
         )
+
+      def withTestingEffect: Project =
+        p.settings(
+          libraryDependencies ++= List(
+            "com.codecommit" %% "cats-effect-testing-scalatest" % "0.4.1" % Test
+          )
+        )
     }
 
   }
