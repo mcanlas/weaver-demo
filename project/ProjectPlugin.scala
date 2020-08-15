@@ -16,7 +16,11 @@ object ProjectPlugin extends AutoPlugin {
 
       def withTesting: Project =
         p.settings(
-          libraryDependencies += "com.disneystreaming" %% "weaver-framework" % "0.4.2" % Test,
+          libraryDependencies ++= List(
+            "com.disneystreaming" %% "weaver-framework" % "0.4.2" % Test,
+            "com.disneystreaming" %% "weaver-zio" % "0.4.2" % Test,
+            "com.disneystreaming" %% "weaver-scalacheck" % "0.4.2" % Test
+          ),
           testFrameworks += new TestFramework("weaver.framework.TestFramework")
         )
     }
