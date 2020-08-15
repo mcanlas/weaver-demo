@@ -11,17 +11,17 @@ object DemoResourceSuite extends IOSuite {
     .make(
       IO(println("Making resource"))
         .as(123)
-    )(_ => IO(println("Closing resource")))
+    )(n => IO(println(s"Closing resource $n")))
 
-  test("resource not used"){
+  test("resource not visible"){
     expect(123 == 123)
   }
 
-  test("hello resource"){ n =>
+  test("test with resource"){ n =>
     expect(n == 123)
   }
 
-  test("hello resource"){ (n, log) =>
+  test("test with resource and a logger"){ (n, log) =>
     log.info("log was available")
     expect(n == 123)
   }
